@@ -1,0 +1,7 @@
+#Madlib
+user = input(f'Enter your name: ')
+adjective = input(f'Enter an adjective: ')
+noun1 = input(f'Enter a noun: ')
+noun2 = input(f'Enter another noun: '))
+
+print(f"{user}'s {noun1} jumped over the {adjective} {noun2}.")

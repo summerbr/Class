@@ -1,0 +1,15 @@
+#Tip Calculator
+bill = int(input('Enter total bill amount: '))
+service_level = input('How was the service? ')
+if service_level == "good":
+    tip_amount = bill * 0.20
+    total_bill = tip_amount + bill
+    print(f'Tip Amount: {tip_amount} \nTotal Amount: {total_bill}')
+elif service_level == "fair":
+    tip_amount = bill * 0.15
+    total_bill = tip_amount + bill
+    print(f'Tip Amount: {tip_amount} \nTotal Amount: {total_bill}')
+elif service_level == "bad":
+    tip_amount = bill * 0.10
+    total_bill = tip_amount + bill
+    print(f'Tip Amount: {tip_amount} \nTotal Amount: {total_bill}')

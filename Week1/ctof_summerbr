@@ -1,0 +1,4 @@
+#Celsius to Fahrenheit
+user_celsius = int(input('Enter Temperature in Celsius: '))
+farenheit_conversion = (user_celsius * 1.8 + 32)
+print(f'{farenheit_conversion}F')

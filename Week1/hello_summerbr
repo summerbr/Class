@@ -1,0 +1,4 @@
+#Hello, you!
+user_name = input('What is your name? ')
+saved_name = (f'Hello, {user_name}!')
+print(saved_name)

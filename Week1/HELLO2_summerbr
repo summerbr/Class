@@ -1,0 +1,6 @@
+user_name = input('What is your name? ')
+saved_name = (f'Hello, {user_name}!')
+
+letter_length = len(user_name)
+print(saved_name.upper())
+print(f'YOUR NAME HAS {letter_length} LETTERS IN IT! AWESOME!')

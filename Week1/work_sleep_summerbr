@@ -1,0 +1,24 @@
+#Day of the week
+user_day= int(input('Enter day number (0-6): '))
+days_of_week = ['Sunday, ''Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+if user_day == 0:
+    print(days_of_week[0])
+elif user_day == 1:
+    print(days_of_week[1])
+elif user_day == 2:
+    print(days_of_week[2])
+elif user_day == 3:
+    print(days_of_week[3])
+elif user_day == 4:
+    print(days_of_week[4])
+elif user_day == 5:
+    print(days_of_week[5])
+elif user_day == 6:
+    print(days_of_week[6])
+
+#Work or sleep in?
+user_day = int(input('Enter day number (0-6): '))
+if user_day == 0 or user_day == 6:
+    print('Sleep in')
+else:
+    print('Go to work')

@@ -1,0 +1,20 @@
+#Tip Calculator / Split Parties
+bill = int(input('Enter total bill amount: '))
+service_level = input('How was the service? ')
+split_party = int(input('Enter number of party to split: '))
+if service_level == "good":
+    tip_amount = bill * 0.20
+    total_bill = tip_amount + bill
+    split_amount = total_bill / split_party
+    print(f'Tip Amount: {tip_amount} \nTotal Amount: {total_bill} \nAmount per person: {split_amount}')
+elif service_level == "fair":
+    tip_amount = bill * 0.15
+    total_bill = tip_amount + bill
+    split_amount = total_bill / split_party
+    print(f'Tip Amount: {tip_amount} \nTotal Amount: {total_bill} \nAmount per person: {split_amount}')
+elif service_level == "bad":
+    tip_amount = bill * 0.10
+    total_bill = tip_amount + bill
+    split_amount = total_bill / split_party
+    print(f'Tip Amount: {tip_amount} \nTotal Amount: {total_bill} \nAmount per person: {split_amount}')
+
