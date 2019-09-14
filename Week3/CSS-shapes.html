@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shape Play</title>
+    <style>
+    #triangle-up {
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 100px solid red;
+        }  
+    .square {
+        width: 0;
+        height: 0;
+        border-top: 50px solid green;
+        border-bottom: 50px solid green;
+        border-right: 50px solid purple;
+        border-left: 50px solid purple;
+    }
+    .rectangle {
+        height: 100px;
+        width: 200px;
+        background-color: pink;
+    }
+    .oval {
+        height: 100px;
+        width: 200px;
+        border-radius: 100px / 50px; 
+        background-color: cyan;
+    }
+    .circle {
+        height: 150px;
+        width: 150px;
+        border-radius: 50%; 
+        background-color: lavender;
+    }
+    .triangle-pt-down {
+        width: 0;
+        height: 0;
+        border-top: 100px solid navy;
+        border-bottom: 40px solid transparent;
+        border-right: 40px solid transparent;
+        border-left: 40px solid transparent;
+    }
+    .triangle-pt-left {
+        width: 0;
+        height: 0;
+        border-top: 40px solid transparent;
+        border-bottom: 40px solid transparent;
+        border-right: 100px solid gray;
+        border-left: 40px solid transparent;
+    }
+    .rt-triangle {
+        width: 0;
+        height: 0;
+        border-top: 60px solid transparent;
+        border-bottom: 60px solid palevioletred;
+        border-right: 60px solid transparent;
+        border-left: 60px solid palevioletred;
+    }
+    .trapezoid {
+        height: 0;
+        width: 100px;
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-bottom: 100px solid orange;
+    }
+    /* .six-pt-star {
+
+    } */
+    .square-diamond {
+        width: 0;
+        height: 0;
+        border-right: 90px solid transparent;
+        border-top: 80px solid black;
+        border-left: 90px solid transparent;
+        border-bottom: 80px solid black;
+    }
+    .pacman {
+        width: 0;
+        height: 0;
+        border-right: 60px solid transparent;
+        border-top: 60px solid yellow;
+        border-left: 60px solid yellow;
+        border-bottom: 60px solid yellow;
+        border-top-left-radius: 60px;
+        border-top-right-radius: 60px;
+        border-bottom-left-radius: 60px;
+        border-bottom-right-radius: 60px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id ="triangle-up"></div><br>
+        <div class="square"></div><br>
+        <div class="rectangle"></div><br>
+        <div class="oval"></div><br>
+        <div class="circle"></div><br>
+        <div class="triangle-pt-down"></div><br>
+        <div class="triangle-pt-left"></div><br>
+        <div class="rt-triangle"></div><br>
+        <div class="trapezoid"></div><br>
+        <div class="six-pt-star">Star</div><br>
+        <div class="square-diamond">Diamond</div><br>
+        <div class="pacman"></div>
+    </div>
+</body>
+</html>
