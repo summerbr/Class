@@ -1,0 +1,95 @@
+<!-- Your task is to make a "Friend request form".
+When completed, people will be able to fill out the form to request to be your friend. 
+- Implement a dropdown menu, a textarea, radio buttons, and checkboxes
+- Implement a submit button (make sure to include type="submit")
+- Make the form email yourself when it's submitted (hint: href="mailto:email@address.com") -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Be My Friend??</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            height: 100vh;
+            margin: 20px;
+            background-color: palevioletred;
+            color: white;
+        }
+        input[type="radio"] {
+            margin-right: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-center">Application for Friendship</h1>
+    <br>
+    <form action="/action_page.php">
+        <div class="form-group">
+            <label for="name"><h3>Name?</h3></label>
+                <input type="name" class="form-control" id="name">
+                    </div>
+            <div class="form-row">
+                <div class="col-md-4 mb-3"><h4>Cheese?</h4></div>
+                <label class="radio-inline px-1"><input type="radio" name="optradio" checked>Yes Please!</label>
+                <label class="radio-inline px-2"><input type="radio" name="optradio"> I hate cheese and therefore hate life.</label>
+                    </div> 
+            <div class="col-lg">
+                <select class="custom-select" required>
+                    <option value="">How often do you eat cheese?</option>
+                    <option value="1">Daily</option>
+                    <option value="2">Few times a week</option>
+                    <option value="3">On special occasions</option> 
+                    <option value="4">As much as humanly possible</option> 
+                    <option value="5">Never!</option> 
+                        </select></div>
+            <h4 class="pt-4">Favorite cheese(s)?</h4>
+            <div class="checkbox px-1">
+                <label><input type="checkbox">Cheddar</label>
+                    </div>
+            <div class="checkbox px-1">
+                <label><input type="checkbox">Mozzarella</label>
+                    </div>
+            <div class="checkbox px-1">
+                <label><input type="checkbox">Feta</label>
+                    </div>
+            <div class="checkbox px-1">
+                <label><input type="checkbox">Goat</label>
+                    </div>
+            <div class="checkbox px-1">
+                <label><input type="checkbox">Parmesan</label>
+                    </div>
+            <div class="checkbox px-1">
+                <label><input type="checkbox">Gorgonzola</label>
+                    </div>
+            <div class="checkbox px-1">
+                <label><input type="checkbox">Gouda</label>
+                    </div>
+            <div class="checkbox px-1">
+                <label><input type="checkbox">Brie</label>
+                    </div>
+            <div class="checkbox px-1">
+                <label><input type="checkbox">Provolone</label>
+                    </div>   
+            <div class="checkbox px-1">
+                <label><input type="checkbox">Gruyere</label>
+                    </div>   
+            <div class="checkbox px-1">
+                <label><input type="checkbox">Raclette</label>
+                    </div>   
+            <div class="checkbox px-1">
+                <label><input type="checkbox">Manchego</label>
+                    </div>    
+            <div class="form-group">
+                <label for="comment">Share your favorite way to eat cheese below!</label>
+                    <textarea class="form-control" rows="4" id="comment"></textarea>
+                        </div>    
+            <button class="btn btn-dark btn-lg" type="submit" class="btn btn-default"><a href="mailto:summer-brown@comcast.net">Submit</a></button>
+    </form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
