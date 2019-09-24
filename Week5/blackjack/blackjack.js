@@ -1,5 +1,10 @@
-let suits = ['Hearts', 'Clubs', 'Spades', 'Diamonds']
-let values = ['Ace', 'King', 'Queen', 'Jack', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+let suits = ['hearts', 'clubs', 'spades', 'diamonds']
+let values = ['ace', 'king', 'queen', 'jack', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+let deck = createDeck()
+
+var dealerHand = [];
+var playerHand = [];
+
 function createDeck() {
     let deck = [];
     for (let suit = 0; suit < suits.length; suit++) {
@@ -11,36 +16,74 @@ function createDeck() {
             }
             deck.push(card);
         }
-    return deck;
     }
+    return deck;
 }
 
-var deal = () => {
-    createCard('9_of_hearts', 'dealer');
-    createCard('king_of_spades', 'dealer');
-    createCard('jack_of_clubs', 'player');
-    createCard('7_of_diamonds', 'player');
+function DealCards(hand, person) {
+    var randomCard = deck[Math.floor(Math.random() * deck.length)];
+    deck.pop(randomCard);
+    hand.push(CreateCard(randomCard.value + '_of_' + randomCard.suit, person));
+    return deck
 }
-function createCard(value, person) {
+
+function Deal() {
+    DealCards(playerHand, 'player')
+    DealCards(dealerHand, 'dealer')
+    DealCards(playerHand, 'player')
+    DealCards(dealerHand, 'dealer')
+}
+// link card & img to DOM
+function CreateCard(value, person) {
     let card = document.createElement('img');
     card.src= 'images/' + value + '.png';
     card.setAttribute('class', 'card');
     document.getElementById(person + '-hand').appendChild(card);
 }
-document.getElementById('deal-button').addEventListener('click', deal);
+// Initial Deal need to hide button after first click or timeout
+document.getElementById('deal-button').addEventListener('click', function () {
+    Deal(deck);
+});
 
-var hit = () => {
-    createCard('2_of_spades', 'player');
+// Hit
+function Hit() {
+    DealCards(playerHand, 'player')
 }
-document.getElementById('hit-button').addEventListener('click', hit); 
+document.getElementById('hit-button').addEventListener('click', function () {
+    Hit(deck);
+}); 
 
-calculatePoints ()
+function CalculatePoints (card) {
+    switch(card.value) {
+        case 'ace':
+            return 1; 
+        case '2':
+            return 2;
+        case '3':
+            return 3;
+        case '4':
+            return 4;
+        case '5':
+            return 5;
+        case '6':
+            return 6;
+        case '7':
+            return 7;
+        case '8':
+            return 8;
+        case '9':
+            return 9;
+        default: //king, queen, jack//
+            return 10;
+    }
+}
 
-// hide deal button after first click
-// // setTimeout
-// $("deal-button").click(function () {
-//     $("deal-button").attr("disabled", true).delay(2000).attr("disabled", false);
-//   });
+// document.getElementById("stand-button").addEventListener("click", Stand()); 
 
-// document.getElementById("stand-button").addEventListener("click", stand); Stand
 // $("playAgain-button").hide();
+
+// if(card.value == 'Ace'){
+//     hasAce = true;
+// }
+// if(hasAce && score+10<=21){
+//     return score+10;
