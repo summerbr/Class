@@ -1,9 +1,8 @@
+let dealerHand = [];
+let playerHand = [];
 let suits = ['hearts', 'clubs', 'spades', 'diamonds']
 let values = ['ace', 'king', 'queen', 'jack', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 let deck = createDeck()
-
-var dealerHand = [];
-var playerHand = [];
 
 function createDeck() {
     let deck = [];
@@ -23,16 +22,19 @@ function createDeck() {
 function DealCards(hand, person) {
     var randomCard = deck[Math.floor(Math.random() * deck.length)];
     deck.pop(randomCard);
-    hand.push(CreateCard(randomCard.value + '_of_' + randomCard.suit, person));
-    return deck
+    CreateCard(randomCard.value + '_of_' + randomCard.suit, person)
+    hand.push(randomCard);
+    // return deck
 }
-
+// Initial Deal 2 cards to each 
 function Deal() {
     DealCards(playerHand, 'player')
     DealCards(dealerHand, 'dealer')
     DealCards(playerHand, 'player')
     DealCards(dealerHand, 'dealer')
+    GetScore()
 }
+
 // link card & img to DOM
 function CreateCard(value, person) {
     let card = document.createElement('img');
@@ -40,20 +42,22 @@ function CreateCard(value, person) {
     card.setAttribute('class', 'card');
     document.getElementById(person + '-hand').appendChild(card);
 }
-// Initial Deal need to hide button after first click or timeout
+
+// Initial Deal /hide button after first click or timeout?
 document.getElementById('deal-button').addEventListener('click', function () {
     Deal(deck);
 });
 
-// Hit
+// Hit - Deal 1 card per click to player only
 function Hit() {
     DealCards(playerHand, 'player')
+    GetScore()
 }
 document.getElementById('hit-button').addEventListener('click', function () {
     Hit(deck);
 }); 
 
-function CalculatePoints (card) {
+function GetCardValue (card) {
     switch(card.value) {
         case 'ace':
             return 1; 
@@ -77,13 +81,45 @@ function CalculatePoints (card) {
             return 10;
     }
 }
+function CalculatePoints(hand) {
+    let score = 0;
+    let hasAce = false;
+    for (point = 0; point < hand.length; point++) {
+        let card = hand[point];
+        score += GetCardValue(card);
+        if (card.value === 'ace') {
+            hasAce = true;
+        }
+        if (hasAce && score + 10 <= 21) {
+            return score + 10;
+        }
+    }
+    return score;
+}
 
-// document.getElementById("stand-button").addEventListener("click", Stand()); 
+function GetScore() {
+    dealerScore = CalculatePoints(dealerHand);
+    playerScore = CalculatePoints(playerHand);
+    console.log("Dealer score: " + dealerScore);
+    console.log("Player score: " + playerScore);
+}
+
+let banner = document.getElementById('messages');
+
+// Stand- Deal 1 card per click to dealer only
+function Stand() {  
+    DealCards(dealerHand, 'dealer')
+    GetScore()
+}
+document.getElementById("stand-button").addEventListener('click', function () {
+    Stand(deck);
+});
+
 
 // $("playAgain-button").hide();
 
-// if(card.value == 'Ace'){
-//     hasAce = true;
+// if(gameOver) {
+//     newGameButton.style.display
+//     'hit-button'.style.display = 'none';
+//     'stand-button'.style.display = 'none';
 // }
-// if(hasAce && score+10<=21){
-//     return score+10;
