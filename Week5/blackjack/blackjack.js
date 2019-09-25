@@ -60,8 +60,10 @@ document.getElementById('hit-button').addEventListener('click', function () {
 
 // Stand- Deal 1 card per click to dealer only
 function Stand() {  
-    DealCards(dealerHand, 'dealer')
-    GetScore()
+    while (dealerScore < 17) {
+        DealCards(dealerHand, 'dealer')
+        GetScore()
+    }
 }
 document.getElementById("stand-button").addEventListener('click', function () {
     Stand(deck);
@@ -114,6 +116,16 @@ function GetScore() {
     playerScore = CalculatePoints(playerHand);
     ShowScore('dealer', dealerScore + ' points');
     ShowScore('player', playerScore + ' points');
+        if (playerScore > 21) {
+            playerWon = false;
+            gameOver = true;
+            banner.textContent = 'Bust!';
+        }
+        if (dealerScore > playerScore && dealerScore > 21) {
+            playerWon = true;
+            gameOver = true;
+            banner.textContent = 'You Win!';
+        }
 }
 
 function ShowScore(person, score) {
@@ -129,11 +141,10 @@ if (gameOver) {
         GetScore();
     }
 }
-    if (playerScore > 21) {
-        playerWon = false;
-        gameOver = true;
-        banner.textContent = 'Bust!'
-    }
+    // if (playerScore > 21) {
+    //     playerWon = false;
+    //     gameOver = true;
+    //     banner.textContent = 'Bust!'
 
 // $("playAgain-button").hide();
 
