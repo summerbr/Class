@@ -1,13 +1,15 @@
+let deck = createDeck();
 let dealerHand = [];
 let playerHand = [];
-let suits = ['hearts', 'clubs', 'spades', 'diamonds']
-let values = ['ace', 'king', 'queen', 'jack', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
-let deck = createDeck()
 let playerScore = 0;
 let dealerScore = 0;
+let gameOver = false;
+let banner = document.getElementById('messages');
 
 function createDeck() {
     let deck = [];
+    let suits = ['hearts', 'clubs', 'spades', 'diamonds']
+    let values = ['ace', 'king', 'queen', 'jack', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
     for (let suit = 0; suit < suits.length; suit++) {
         for (let value = 0; value < values.length; value++)
         {
@@ -26,7 +28,7 @@ function dealCards(hand, person) {
     deck.pop(randomCard);
     createCard(randomCard.value + '_of_' + randomCard.suit, person)
     hand.push(randomCard);
-    // return deck
+    // return deck  --not necessary?
 }
 
 // Initial Deal 2 cards to each 
@@ -36,7 +38,15 @@ function deal() {
     dealCards(playerHand, 'player')
     dealCards(dealerHand, 'dealer')
     getScore()
+        // if (dealerScore == 21 && playerScore == 21) {
+        //     gameOver(dealer)
+        // } else if (dealerScore == 21 && playerScore != 21) {
+        //     gameOver(dealer)
+        // } else if (playerScore == 21 && dealerScore != 21) {
+        //     gameOver(player)
+        // }
 }
+
 document.getElementById('deal-button').addEventListener('click', function () {
     deal(deck);
 });
@@ -53,22 +63,27 @@ function createCard(value, person) {
 function hit() {
     dealCards(playerHand, 'player')
     getScore()
-}
+} //add ace logic to this step??
 document.getElementById('hit-button').addEventListener('click', function () {
     hit(deck);
 }); 
-
+// while (dealerScore <= 17 && playerScore < 21) {
 // Stand - Deal 1 card to dealer on click ---IF TIE?---
 function stand() {  
-    while (dealerScore < 17 && playerScore <= 21) {
+    while (dealerScore < 17) {
         dealCards(dealerHand, 'dealer')
         getScore()
-        if (dealerScore === 21) {
+        if (dealerScore === 21 || dealerScore > playerScore) {
             playerWon = false;
             gameOver = true;
             banner.textContent = 'You Lose!';
-            break;
+            break;x
         }
+    }
+        if (dealerScore === playerScore) {
+        playerWon = false;
+        gameOver = true;
+        banner.textContent = 'Dealer wins!';
     }
 }
 document.getElementById("stand-button").addEventListener('click', function () {
@@ -139,19 +154,15 @@ function showScore(person, score) {
     label.textContent = score
 }
 
-let gameOver = false;
-let banner = document.getElementById('messages');
 if (gameOver) {
-    while (dealerScore < playerScore && playerScore <= 21 && dealerScore <= 21){
+    while (dealerScore < playerScore && playerScore < 21 && dealerScore < 21){
         dealCards();
         getScore();
         hit();
+        stand();
     }
+    resetGame();
 }
-// $("playAgain-button").hide();
-
-// if(gameOver) {
-//     newGameButton.style.display
-//     'hit-button'.style.display = 'none';
-//     'stand-button'.style.display = 'none';
+// function resetGame() {
+//     ('game-active-buttons).hide
 // }

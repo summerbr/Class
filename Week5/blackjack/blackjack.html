@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BLACKJACK</title>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
     <style>
-    * {
-        box-sizing: border-box;
-    }
     body {
         font-family: 'Luckiest Guy', cursive;
         background: linear-gradient(lightcoral, pink);
@@ -16,11 +14,11 @@
         display: flex;
         color: white;
         font-size: 30px;
+        min-height: 100%;
     }
     #table {
         padding: 20%;
         margin: 0;
-        flex-wrap: nowrap;
     }
     #messages {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -50,7 +48,7 @@
     }
     .card {
         height: 100%;
-    }
+    } 
     </style>
 </head>
 <body>
@@ -66,12 +64,12 @@
     <div id="player-hand" class="hand">
     </div>
     
-    <div class="buttons">
-    <button id="deal-button" class="button">Deal</button>
+    <div class="buttons"> <!--id="game-active-buttons"-->
+    <button id="deal-button" class="button">Deal</button> 
     <button id="hit-button" class="button">Hit</button>
     <button id="stand-button" class="button">Stand</button>
     </div>
-    
+    <!-- <a href="blackjack.html" class="button" style="display: none;">New game</a> -->
     </div> 
 </body>
 <script src="blackjack.js"></script>
