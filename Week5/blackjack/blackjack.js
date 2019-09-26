@@ -68,7 +68,7 @@ document.getElementById('hit-button').addEventListener('click', function () {
     hit(deck);
 }); 
 // while (dealerScore <= 17 && playerScore < 21) {
-// Stand - Deal 1 card to dealer on click ---IF TIE?---
+// Stand - Deal to dealer until 17 is reached
 function stand() {  
     while (dealerScore < 17) {
         dealCards(dealerHand, 'dealer')
