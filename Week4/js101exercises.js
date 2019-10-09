@@ -58,23 +58,25 @@ function tipAmount(bill, service) {
 // ***** 
 // ***** 
 // *****
-// Print a box
 
+
+// Print a box
 // Write function printBox which is given a width and height and prints a hollow box of those given dimensions.
 // > printBox(6, 4) 
 // ****** 
 // *    * 
 // *    * 
 // ******
-// Print a Banner
 
+
+// Print a Banner
 // Write a function printBanner which is given some text and prints a banner with a border surrounding the text. The border has to stretch to the length of the text.
 // > printBanner('Welcome to DigitalCrafts') 
 // **************************** 
 // * Welcome to DigitalCrafts * 
 // ****************************
-// Leetspeak
 
+// Leetspeak
 // Write a function leetspeak which is given a string, and returns the leetspeak equivalent of the string. To convert text to its leetspeak version, make the following substitutions:
 // A => 4
 // E => 3
@@ -123,16 +125,18 @@ function letterReplace(letter) {
 // 'Cheeeeese' 
 // > longLongVowels('Man') 
 // 'Man'
-// Just the positives
 
+
+// Just the positives
 // Write a function positiveNumbers which is given an array of numbers and returns a new array containing only the positive numbers within the given array.
 // > positiveNumbers([1, -3, 5, -3, 0]) 
 // [1, 5, 0] 
 // > positiveNumbers([1, 2, 3]) 
 // [1, 2, 3] 
 // > positiveNumbers([-1, -2, -3]) []
-// Bonus: Caesar Cipher
 
+
+// Bonus: Caesar Cipher
 // Write a function cipher which is given a string, an offset, and returns the Caesar cipher of the string.
 // > cipher('Genius without education is like silver in the mine') 
 // 'Travhf jvgubhg rqhpngvba vf yvxr fvyire va gur zvar'
