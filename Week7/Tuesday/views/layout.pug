@@ -3,13 +3,14 @@ html
   head
     title Japanese YUM!
     link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous')
+    link(rel='stylesheet' type='text/css' href='styles/layout.css')
   body
     nav.navbar.navbar-expand-lg.navbar-light.bg-primary
       a.navbar-brand(href='#') 和食
       button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
         span.navbar-toggler-icon
       #navbarNav.collapse.navbar-collapse
-        ul.navbar-nav
+        ul.navbar-nav.nav-justified
           li.nav-item.active
             a.nav-link(href='/')
               | Home 
@@ -17,7 +18,11 @@ html
           li.nav-item
             a.nav-link(href='/food') Food
           li.nav-item
-            a.nav-link(href='/region') Regions
+            a.nav-link(href='/category') Category
+          li.nav-item
+            a.nav-link(href='/region') Region
+          li.nav-item
+            a.nav-link(href='/account/login') Login
     .container
       .jumbotron
         h1.text-center Japanese YUM 

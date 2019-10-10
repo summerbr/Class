@@ -34,11 +34,23 @@ yatsuhashi: {
 const express = require("express")
 const app = express();
 const port = 3000;
+const session = require("express-session")
 const bodyParser = require("body-parser")
+const accountRouter = require('./routes/account')
 
 // app.use(bodyParser.json())
 app.use(express.static("public")); //folderName
+app.use(bodyParser.urlencoded({ extended: false}));
+
+app.use(session({
+  secret: "pssssstttttttt....",
+  resave: false,
+  saveUninitialized: true
+}));
+
 app.set("view engine", "pug");
+
+app.use("/account", accountRouter);
 
 app.get("/", (req, res) => {
   res.render("index", {title:"Boo", message: "Send Help"});
@@ -49,34 +61,24 @@ app.get("/food/", (req, res) => {
 })
 
 app.get("/food/category/", (req, res) => {
-  res.render("Category");
+  res.render("category");
 })
 
 app.get("/food/category/:category", (req, res) => {
-  res.render("Category selection");
+  res.render("category selection");
 })
 
-// app.get("/food/type/", (req, res) => {
-//   res.send("Type");
-// })
-
-// app.get("/food/type/:type", (req, res) => {
-//   res.send("Food Type");
-// })
-
 app.get("/food/region", (req, res) => {
-  res.send("Region");
+  res.render("Region");
 })
 
 app.get("/food/region/:region", (req, res) => {
   res.send(`${req.params.region} was typed`);
 })
 
-// app.post("/", (req, res) => {
-//   console.log(req.body);
-//   // store req.body to movies data
-//   res.send("OK");
-// })
+app.get("/account", (req, res) => {
+  res.render(`Welcome ${user}`);
+})
 
 app.listen(port, () => {
   console.log(`App is running on port ${port}`);
