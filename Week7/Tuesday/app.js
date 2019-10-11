@@ -39,7 +39,7 @@ const bodyParser = require("body-parser")
 const accountRouter = require('./routes/account')
 
 // app.use(bodyParser.json())
-app.use(express.static("public")); //folderName
+app.use(express.static("public")); //folderName in root
 app.use(bodyParser.urlencoded({ extended: false}));
 
 app.use(session({
