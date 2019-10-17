@@ -7,7 +7,7 @@ const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
 const accountRouter = require('./routes/account');
 
-// app.use(bodyParser.json())
+app.use(bodyParser.json())
 app.use(express.static("public")); //folderName in root
 app.use(bodyParser.urlencoded({ extended: false}));
 app.set("view engine", "pug");
@@ -46,9 +46,9 @@ app.get("/food/region/:region", (req, res) => {
   res.send(`${req.params.region} was typed`);
 })
 
-app.get("/account", (req, res) => {
-  res.render(`Welcome ${email}`);
-})
+// app.get("/account", (req, res) => {
+//   res.render(`Welcome ${email}`);
+// })
 
 app.get("/login", (req, res)=> {
   let data = {};
@@ -66,7 +66,7 @@ app.get("/logout", (req, res) => {
 app.post("/login", async (req, res)=> {
   try {   //check if user exists in db
     let dbUser = await db.checkForUser(req.body.email);
-    if (!dbUser) throw new Error("Login failed");
+    if (!dbUser.email) throw new Error("Login failed");
     //check the password matches
     bcrypt.compare(req.body.password, dbUser.password), (err, same) => {
       if (error) throw err;
@@ -80,17 +80,22 @@ app.post("/login", async (req, res)=> {
   }
 });
 
-app.post("/users", async (req, res) => {
+
+app.get("/register", (req, res) => {
+  res.render("register");
+})
+
+app.post("/registerUser", async (req, res) => {
   try {
     let user = await db.checkForUser(req.body.email);
     if (user) {
       throw new Error("Issue with email or password");
     }
     bcrypt.hash(req.body.password, 5, (err, encrypted)=> {
-    if (err) throw err;
-    db.createUser(req.body.email, encrypted);
-    res.redirect("/login?registeredSuccessfully=true");
-  });
+      if (err) throw err;
+      db.createUser(req.body.email, encrypted);
+      res.redirect("/login?registeredSuccessfully=true");
+    });
   } catch (e) {
     res.send(e);
   }

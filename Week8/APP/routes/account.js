@@ -12,12 +12,11 @@ router.get("/login", function(req, res) {
   res.render("account/login")
 })
 
-router.get("/register", function(req, res) {
-  res.render("account/register");
-})
+// router.get("/register", function(req, res) {
+//   res.render("account/register");
+// })
 
 router.post("/login", function(req, res) {
-  // console.log(req.session)
   if (req.session) {
     req.session.email = req.body.email
   }
@@ -35,7 +34,7 @@ router.post("/add", function(req, res) {
 })
 
 router.get("/dashboard", (req, res) => {
-  console.log(req.session.tryFoods);
+  // console.log(req.session.tryFoods);
   var data = {};
   if (req.session && req.session.tryFoods) {
     data.tryFoods = req.session.tryFoods;
