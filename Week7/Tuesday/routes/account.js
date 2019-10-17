@@ -12,6 +12,10 @@ router.get("/login", function(req, res) {
   res.render("account/login")
 })
 
+router.get("/register", function(req, res) {
+  res.render("/account/register");
+})
+
 router.post("/login", function(req, res) {
   // console.log(req.session)
   if (req.session) {
@@ -29,6 +33,7 @@ router.post("/add", function(req, res) {
   }
   res.redirect("/account/dashboard")
 })
+
 router.get("/dashboard", (req, res) => {
   console.log(req.session.tryFoods);
   var data = {};

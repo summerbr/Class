@@ -1,0 +1,15 @@
+extend ../layout
+
+block heading
+  h2 Login
+
+block content
+  form(method="POST" action="/account/login")
+    .form-group
+      label(for='email') Email
+      input#email.form-control(name="email" type='text' aria-describedby='emailHelp' placeholder='Enter your email')
+    .form-group
+      label(for='password') Password
+      input#password.form-control(name="password" type='text' aria-describedby='emailHelp' placeholder='Enter your password')
+    button.btn.btn-primary Login      
+  a(href="/account/register") Register
