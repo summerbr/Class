@@ -4,6 +4,10 @@ block heading
   h2 Login
 
 block content
+  if registeredSuccessfully
+    .alert.alert-success Registered successfully, please log in.
+  if loggedOutSuccessfully
+    .alert.alert-success Logged Out Successfully
   form(method="POST" action="/login")
     .form-group
       label(for='email') Email
@@ -12,4 +16,5 @@ block content
       label(for='password') Password
       input#password.form-control(name="password" type='password' aria-describedby='emailHelp' placeholder='Enter your password')
     button.btn.btn-primary Login      
+  
   a(href="/register") Register

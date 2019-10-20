@@ -5,11 +5,12 @@ const db = require("./database");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
-const accountRouter = require('./routes/account');
+// const accountRouter = require('./routes/account');
 
 app.use(bodyParser.json())
 app.use(express.static("public")); //folderName in root
 app.use(bodyParser.urlencoded({ extended: false}));
+
 app.set("view engine", "pug");
 
 app.use(session({
@@ -18,7 +19,7 @@ app.use(session({
   saveUninitialized: true
 }));
 
-app.use("/account", accountRouter);
+// app.use("/account", accountRouter);
 
 app.get("/", (req, res) => {
   res.render("index", {title:"Boo", message: "Send Help"});
@@ -54,7 +55,37 @@ app.get("/login", (req, res)=> {
   let data = {};
   if (req.query.registeredSuccessfully) data.registeredSuccessfully = true;
   if (req.query.loggedOutSuccessfully) data.loggedOutSuccessfully = true;
-  res.render("login", data);
+  res.render("account/login", data);
+});
+ 
+// app.get("/login", function(req, res) {
+//   if (req.session && req.session.email) {
+//     res.redirect("/dashboard");
+//   }
+//   res.render("account/login")
+// })
+
+app.post("/login", async (req, res)=> {
+  try {
+  let email = req.body.email,
+    password = req.body.password
+    //check if user exists in db
+    let dbUser = await db.checkForUser(email);
+    console.log(dbUser)
+    if (!dbUser.email) throw new Error("Login failed");
+    //check the password matches
+    bcrypt.compare(req.body.password, dbUser.password, (err, same) => {
+      if (err) throw err;
+      if (!same) throw new Error("Incorrect password");
+      //login & redirect (save user_id to session, go to dashboard)
+      req.session.user_id = dbUser.id;
+      console.log("well hello there general kenobi")
+      res.redirect("/dashboard");
+    });
+  } catch (e) {
+    console.log("well hello there general kenobi")
+    res.send(e);
+  }
 });
 
 app.get("/logout", (req, res) => {
@@ -63,31 +94,14 @@ app.get("/logout", (req, res) => {
   res.redirect("/login?loggedOutSuccessfully=true");
 });
 
-app.post("/login", async (req, res)=> {
-  try {   //check if user exists in db
-    let dbUser = await db.checkForUser(req.body.email);
-    if (!dbUser.email) throw new Error("Login failed");
-    //check the password matches
-    bcrypt.compare(req.body.password, dbUser.password), (err, same) => {
-      if (error) throw err;
-      if (!same) throw new Error("Incorrect password");
-      //login & redirect (save user_id to session, go to dashboard)
-      req.session.user_id = dbUser.id;
-      res.redirect("/account");
-    };
-  } catch (e) {
-      res.send(e);
-  }
-});
-
-
 app.get("/register", (req, res) => {
-  res.render("register");
+  res.render("account/register");
 })
 
 app.post("/registerUser", async (req, res) => {
   try {
     let user = await db.checkForUser(req.body.email);
+    console.log(user)
     if (user) {
       throw new Error("Issue with email or password");
     }
@@ -100,6 +114,28 @@ app.post("/registerUser", async (req, res) => {
     res.send(e);
   }
 });
+
+app.post("/add", function(req, res) {
+  if (req.session) {
+      if (!req.session.tryFoods) req.session.tryFoods = [];
+      console.log(req.session)
+      console.log(req.body.food);
+      req.session.tryFoods.push({ food: req.body.food })
+  }
+  res.redirect("/account/dashboard")
+})
+
+app.get("/dashboard", (req, res) => {
+  // console.log(req.session.tryFoods);
+  var data = {};
+  if (req.session && req.session.tryFoods) {
+    data.tryFoods = req.session.tryFoods;
+  } else {
+    data.message = "Add some food!"
+    console.log(req.session)
+  }
+  res.render("account/dashboard", data);
+})
 
 app.listen(port, () => {
   console.log(`App is running on port ${port}`);

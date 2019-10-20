@@ -1,0 +1,18 @@
+extend layout
+
+block heading
+  h1 Register
+
+block content
+  if registeredSuccessfully
+    .alert.alert-success Registered successfully, please log in.
+  form.form(method='post' action='/register')
+    label.mr-sm-2(for='first_name') First Name:
+    input#email.form-control.mb-2.mr-sm-2(type='name' name='first_name')
+    label.mr-sm-2(for='last_name') Last Name:
+    input#email.form-control.mb-2.mr-sm-2(type='name' name='last_name')
+    label.mr-sm-2(for='email') Email address:
+    input#email.form-control.mb-2.mr-sm-2(type='email' name='email')
+    label.mr-sm-2(for='pwd') Password:
+    input#pwd.form-control.mb-2.mr-sm-2(type='password' name='password')
+    button.btn.btn-primary.mb-2(type='submit') Submit
