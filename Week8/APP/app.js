@@ -79,11 +79,9 @@ app.post("/login", async (req, res)=> {
       if (!same) throw new Error("Incorrect password");
       //login & redirect (save user_id to session, go to dashboard)
       req.session.user_id = dbUser.id;
-      console.log("well hello there general kenobi")
       res.redirect("/dashboard");
     });
   } catch (e) {
-    console.log("well hello there general kenobi")
     res.send(e);
   }
 });
