@@ -45,3 +45,7 @@ aside {
     border: 5px solid teal;
     background: navy;
 }
+
+footer {
+    margin-left: 0;
+}
