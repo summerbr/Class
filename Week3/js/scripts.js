@@ -1,9 +1,15 @@
 var parent = document.getElementById('container');
 parent.appendChild(navbar);
 
-
-
 // create function to generate list & section elements
+// link card & img to DOM
+// function createCard(value, person) {
+//   let card = document.createElement('img');
+//   card.src= 'images/' + value + '.png';
+//   card.setAttribute('class', 'card');
+//   document.getElementById(person + '-hand').appendChild(card);
+// }
+
 
 // NAVBAR
 var navbar = document.createElement('ul');

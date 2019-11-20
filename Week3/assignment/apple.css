@@ -1,0 +1,47 @@
+body {
+  background-color: black;
+}
+
+#container {
+  flex-direction: column;
+}
+
+#menu {
+  display: flex;
+  color: white;
+  background-color: #2F4F4F;
+}
+
+#menu div {
+  margin: 10px 15px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+#logo {
+  background: url(../images/iPhone-desktop.png);
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: contain;
+  height: 80%; 
+  width: 100%;  
+}
+
+@media (max-width: 480px) and (min-width: 320px) {
+  #menu {
+    flex-direction: column;
+    align-items: center;
+  }
+  #logo {
+    background: url(../images/hero_vertical_startframe_small_2x.jpg);
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-size: contain;
+    height: 100%; 
+    width: 100%;  
+  }
+}
