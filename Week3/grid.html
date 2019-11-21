@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>GRIDDLES</title>
+  <style>
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+    grid-auto-rows: 30px;
+  }
+  div {
+    color: white;
+    font-weight: 800;
+    text-align: center;
+  }
+  .one {
+    background-color: blue;
+  }
+  .two {
+    background-color: red;
+  }
+  .three {
+    background-color: green;
+  }
+  .four {
+    background-color: orange;
+    grid-column: 1/4;
+  }
+  .five{
+    background-color: purple;
+  }
+  .six{
+    background-color: yellow;
+  }
+  /* .seven {
+    background-color: pink;
+  } */
+  .inner {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column: 1/4;
+  }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="one">1</div>
+    <div class="two">2</div>
+    <div class="three">3</div>
+    <div class="four">4</div>
+  <div class="inner">
+    <div class="five">5</div>
+    <div class="six">6</div>
+    <!-- <div class="seven">7</div> -->
+    </div>
+  </div>
+</body>
+</html>
