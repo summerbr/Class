@@ -12,8 +12,7 @@
 
 
 // - Create an app which removes duplicates from an array 
-  ["John", "Mary", "Alex", "Steve", "Mary", "John"] 
-//   Result should be: ["John","Mary","Alex","Steve"] 
+  let arr = ["John", "Mary", "Alex", "Steve", "Mary", "John"] 
   function noDuplicates(arr) {
     let noDupes = []
     let duplicates = arr.split('');
@@ -22,9 +21,7 @@
         noDupes.push(name)
       }
     })
-  }
-filter?
-
+  }  //filter or set?  unique = [...new Set(arr)]
 
 // - Create an app which returns true/false depending on if the item is in the array 
   function arrayCheck(arr){
@@ -35,8 +32,7 @@ filter?
         console.log(false)
       }
     }
-  }
-
+  }  //return a === arr;
 
 // - Create an app which finds the largest number in an array 
   function biggestNum(num) {
@@ -48,9 +44,8 @@ filter?
     }
   }
 
-
 // - Create an app which finds the smallest number in an array 
-Math.min(9, 4, 38);
+  Math.min(9, 4, 38);
 
 // - Create FizzBuzz app 
 for (let num = 1; num <= num.length; num++) {
@@ -70,28 +65,33 @@ for (let num = 1; num <= num.length; num++) {
     }
   }
 // - Write an algorithm to sort an array in descending order 
-  arr = [4, 5, 56, 1, 2, 99, 34, 2, 1] 
+  let arr = [4, 5, 56, 1, 2, 99, 34, 2, 1] 
   arr.sort(function(a, b) {
       return b - a;
     })
 
 // - In a given sentence find the number of words
   function wordCount(sentence){
-    return sentence.split(/\w+/).length;
+    return sentence.split(' ').length;
   }
-  sentence.split(/\w+/).filter(word => word.length)
-
-
 // - In a given word find number of vowels
-let vowels = ['a', 'e', 'i', 'o', 'u']
-
-
-
+  let vowel = 0;
+  for (let i=0; i < i.length; i++ )
+    switch(word[i]) {
+      case 'a':
+      case 'e':
+      case 'i':
+      case 'o':
+      case 'u':
+          vowel++; 
+          break;
+    }
+  console.log(vowel)
 
 // - Given start time and end time find the different between two times 
-let start = 12;
-let end = 10;
-function timeDiff(start,end) {
-  return start - end
-}
+  let start = 12;
+  let end = 10;
+  function timeDiff(start,end) {
+    return start - end
+  }
 
