@@ -1,45 +1,40 @@
 var parent = document.getElementById('container');
-parent.appendChild(navbar);
 
-// create function to generate list & section elements
-// link card & img to DOM
-// function createCard(value, person) {
-//   let card = document.createElement('img');
-//   card.src= 'images/' + value + '.png';
-//   card.setAttribute('class', 'card');
-//   document.getElementById(person + '-hand').appendChild(card);
-// }
-
+// create function to generate list & section elements?
 
 // NAVBAR
 var navbar = document.createElement('ul');
+parent.appendChild(navbar);
+
 var logo = document.createElement('li');
 logo.innerHTML = '<h1>HighOnCoding</h1>';
 var homeLink = document.createElement('li');
-homeLink.innerHTML = 'Home'
+homeLink.innerHTML = '<h2>Home</h2>'
 var catLink = document.createElement('li');
-catLink.innerHTML = 'Categories'
+catLink.innerHTML = '<h2>Categories</h2>';
 navbar.append(logo);
 navbar.append(homeLink);
 navbar.append(catLink);
-// document.getElementById("catLink").setAttribute("href", "../categories.html");
-navbar.style.backgroundColor = "cornflowerblue";
-navbar.style.listStyle = "none";
-navbar.style.color = "white";
-// const navStyle = 
-//   display: inline;
-//   backgroundColor: cornflowerblue; 
-//   color: white; 
-// navbar.style = navStyle
+navbar.className = "nav";
 
 // SELECTED TEXT
 var header = document.createElement('header');
 header.innerHTML = '<h2>Curse of the Current Reviews</h2>';
 var headTxt = document.createElement('p');
 headTxt.innerHTML = 'Last month Apple released the anticipated WatchKit Framework for developers in the form iOS 8.2 beta SDK release. The WatchKit framework enable the developers to create Apple Watch applications. In this article we are going to focus on the basics of getting started with the WatchKit framework and developing apps for the Apple Watch.';
-header.style.backgroundColor = "gray";
 parent.appendChild(header);
 header.appendChild(headTxt);
+header.className = 'feature';
+
+var bar = document.createElement('ul');
+var comment = document.createElement('li');
+comment.innerHTML = 'comments';
+var like = document.createElement('li');
+like.innerHTML = 'likes';
+bar.appendChild(comment);
+bar.appendChild(like);
+bar.className = 'bar';
+var cloneBar = bar.cloneNode(true);
 
 // First SECTION
 var main = document.createElement('main');
@@ -63,13 +58,4 @@ articleTxt.innerHTML = 'Swift is a modern programming language developed by Appl
 main.appendChild(article);
 article.appendChild(articleTitle);
 article.appendChild(articleTxt);
-article.appendChild(bar);
-
-var bar = document.createElement('ul');
-var comment = document.createElement('li');
-comment.innerHTML = 'comments';
-var like = document.createElement('li');
-like.innerHTML = 'likes';
-bar.appendChild(comment);
-bar.appendChild(like);
-bar.style.backgroundColor = "orange";
+article.appendChild(cloneBar);
