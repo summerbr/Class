@@ -6,11 +6,13 @@
 }
 
 .nav { 
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: space-evenly;
 }
 
 button {
+  background-image: url('');
+  color: white;
   width: 75px;
   height: 50px;
   border-radius: 20%;
@@ -27,5 +29,5 @@ main {
 .img {
   width: 150px;
   height: 150px;
-
+  
 }
