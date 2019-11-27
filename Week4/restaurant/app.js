@@ -9,6 +9,7 @@ function displayDishes() {
     <h3>${dish.title}</h3>
     <img src=" ${dish.imageURL}"< />
     <figcaption>${dish.description}</figcaption>
+    <label>${dish.price}</label>
     </li>`
   });
   menuItem.innerHTML = item.join(' ')
@@ -25,6 +26,7 @@ function filterDish(course){
       <h3>${dish.title}</h3>
       <img src=" ${dish.imageURL}"< />
       <figcaption>${dish.description}</figcaption>
+      <label>${dish.price}</label>
       </li>`
   });
   menuItem.innerHTML = items.join(' ')
