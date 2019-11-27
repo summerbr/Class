@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body onload="displayDishes()">
   <div id="container">
     <nav>
       <button id="all" class="active" onclick="displayDishes()">All Items</button>
@@ -12,7 +12,6 @@
       <button id="entree" value="Entrees" onclick="filterDish(this.value)">Entree</button>
       <button id="dessert" value="Desserts" onclick="filterDish(this.value)">Dessert</button>
     </nav>
-    <h2>Menu</h2>
     <ul id="menu"></ul>
   </div>
 </body>
