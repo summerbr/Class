@@ -2,6 +2,10 @@
   margin: 0;
 }
 
+body {
+  background-image: url("https://images.unsplash.com/photo-1519972064555-542444e71b54?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+  background-position: right;
+}
 .container {
   display: flex;
 }
