@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "summerb",
+    "password": "password",
+    "database": "library",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "summerb",
+    "password": "password",
+    "database": "library",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "summerb",
+    "password": "password",
+    "database": "library",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}

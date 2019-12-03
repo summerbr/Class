@@ -1,0 +1,22 @@
+.jumbotron {
+  background-image: url("/image/yum.jpeg");
+  background-position: center center;
+  height: 100%;
+  font-weight: bolder;
+  /* margin-top: 5px; */
+  font-size: 50px;
+  color: white;
+  text-shadow: 4px 6px 6px rgba(0,0,0,0.6);
+}
+
+body {
+  color: blue;
+  background-color: rgb(247, 252, 150);
+  /* text-align: center; */
+  /* vertical-align: middle; */
+}
+
+ul {
+  list-style-type: hiragana-iroha;
+  list-style-position: inside;
+}

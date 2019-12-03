@@ -1,0 +1,8 @@
+extend layout
+
+block content
+  //- h2= Object.keys(washoku)
+  ul
+    for food in Object.keys(washoku)
+      li
+        a(id=food href="/food/"+food)= food

@@ -1,0 +1,12 @@
+extend ../layout
+
+block content
+  form(method="POST" action="/account/login")
+    .form-group
+      label(for='email') Email
+      input#email.form-control(type='text' aria-describedby='emailHelp' placeholder='Enter your email' name="email")
+    .form-group
+      label(for='password') Password
+      input#password.form-control(type='text' aria-describedby='emailHelp' placeholder='Enter your password' name="password")
+      form(method="POST" action="/account/login")
+    button.btn.btn-primary Login

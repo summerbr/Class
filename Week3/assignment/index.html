@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Responsive</title>
+<head>
+  <style>
+    #container {
+      flex-direction: column;
+      background-color: yellow;
+      width: 100vw;
+      margin: auto;
+    }
+
+    .navigation {
+      /* display: flex; */
+    }
+
+    ul {
+      display: flex;
+      background-color: gray;
+      width: 100%;
+    }
+
+    ul li {
+      text-align: center;
+      padding: 10px;
+      color: white;
+      list-style-type: none;
+    }
+
+    .post h1 {
+      display: flex;
+      background-color:lightBlue;
+      text-align: center;
+    }
+
+    .post-image {
+      /* float: left; */
+      justify-content: center;
+      width: 50px;
+      /* margin-right: 10px; */
+    }
+
+    .post-content{}
+
+    @media (max-width: 480px) and (min-width: 320px) {
+      ul {
+        flex-direction: column;
+        align-items: center;
+        background-color: yellow;
+      }
+      ul li {
+        color: black;
+        padding: 0;
+        margin: 5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div class="navigation">
+    <ul>
+      <li>Home</li>
+      <li>Portfolio</li>
+      <li>Contact Us</li>
+      <li>About Us</li>
+    </ul>
+  </div>
+  <div class="content">
+    <div class="post">
+      <h1>Introduction to iPhone Development </h1>
+      <div class="post-image">
+        <img src="../images/ios.jpg">
+      </div>
+      <div class="post-content">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
+      </div>
+    </div>
+    <div class="post">
+      <h1>Beginning Android Development </h1>
+      <div class="post-image">
+        <img src="../images/android.png">
+      </div>
+      <div class="post-content">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
+      </div>
+    </div>
+    <div class="post">
+      <h1>Building Amazing Apps Using ARKit for iOS</h1>
+      <div class="post-image">
+        <img src="../images/arkithero.jpg">
+      </div>
+      <div class="post-content">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

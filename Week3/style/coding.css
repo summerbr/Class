@@ -1,0 +1,57 @@
+.menu {
+  color: white;
+  background-color: cornflowerblue;
+  font-size: 25px;
+  display: inline-flex;
+  padding: 5px;
+  width: 100vw;
+}
+
+a {
+  margin-right: 10px;
+  padding: 30px;
+  color: white;
+  text-decoration: none;
+}
+
+article {
+  background-color: lightgray;
+}
+
+article h2 {
+  color: darkslategray;
+  margin-bottom: 20px;
+}
+
+section h4{
+  color: blue;
+  margin-bottom: 5px;
+}
+
+section div {
+  display: inline-flex;
+  justify-content: space-evenly;
+  background-color: orange;
+  color: white;
+  width: 100vw;
+}
+
+.card {
+  text-align: center;
+  background-color: lightgray;
+  width: 150px;
+  height: 150px;
+  padding: 15px;
+  margin: 15px;
+  display: inline-block;
+  border: 3px solid white;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.unbold {
+  font-weight: normal;
+}
+
+p {
+  margin: auto;
+}
