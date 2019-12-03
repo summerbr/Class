@@ -38,7 +38,10 @@ button {
 
 #detail {
   max-width: 40%;
-  margin: 5px;
-  /* background-color: lightsalmon; */
+  margin: 15px;
   /* align-content: flex-end; */
 } 
+
+#detail h2, h4, p{
+  padding: 5px;
+}

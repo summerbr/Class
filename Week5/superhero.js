@@ -26,7 +26,7 @@ function showDetails(e) {
     let details = JSON.parse(this.responseText)
     console.log(details)
     detailPane.innerHTML = 
-    ` <h2>${details.Title}</h2>
+    ` <h1>${details.Title}</h1>
       <h4>Rating: ${details.Rated}</h4>
       <h4>Release Date: ${details.Released}</h4>
       <h4>Awards: ${details.Awards}</h4>
