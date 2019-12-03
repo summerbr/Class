@@ -4,12 +4,12 @@ let detailPane = document.getElementById('detail')
 
 function getMovies(done, search) {
   let url = `http://www.omdbapi.com/?s=${search}&apikey=${key}`
-  let movies = []
   let request = new XMLHttpRequest()
 
   request.onload = function() {
     let movies = JSON.parse(this.responseText)
     done(movies)
+    console.log(movies)
   }
   request.open('GET', url)
   request.send() 
@@ -22,16 +22,16 @@ function showDetails(e) {
   
   request.open('GET', url)
   request.send() 
-
   request.onload = function() {
     let details = JSON.parse(this.responseText)
-    // console.log(details)
+    console.log(details)
     detailPane.innerHTML = 
     ` <h2>${details.Title}</h2>
       <h4>Rating: ${details.Rated}</h4>
       <h4>Release Date: ${details.Released}</h4>
-      <h5>Awards: ${details.Awards}</h5>
+      <h4>Awards: ${details.Awards}</h4>
       <p>Plot Summary: ${details.Plot}</p>
+      <img src=" ${details.Poster} " />
     `
   }
 }
@@ -40,7 +40,7 @@ function displayMovies(movies) {
   let movieList = movies.Search.map((movie) => {
     return `<li>
     <img src=" ${movie.Poster} " />
-    <h1> ${movie.Title} </h1>
+    <h4> ${movie.Title} </h4>
     <button id= ${movie.imdbID} onclick= "showDetails(event)" >Show Details</button>
     </li>`
   })
@@ -49,4 +49,6 @@ function displayMovies(movies) {
 
 getMovies((movies) => {
   displayMovies(movies)
-}, 'deadpool')
+}, 'avengers')
+
+//filter out if type != movie

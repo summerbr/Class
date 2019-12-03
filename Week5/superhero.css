@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+}
+
+#container {
+  display: flex;
+  height: 100vh;
+  background-color: lightsalmon;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 0;
+}
+
+ul li {
+  background-color: oldlace;
+  border: 2px solid salmon;
+  max-height: 250px;
+  max-width: 200px;
+  padding: 15px;
+} 
+
+ul img {
+  height: 200px;
+  width: 150px;
+}
+
+button {
+  background-color: palevioletred;
+  width: 100px;
+  color: white;
+}
+
+#detail {
+  max-width: 40%;
+  margin: 5px;
+  /* background-color: lightsalmon; */
+  /* align-content: flex-end; */
+} 
