@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+}
+
+body {
+  background-color: lightsalmon;
+}
+
+#container {
+  display: flex;
+  height: 100vh;
+  /* background-color: lightsalmon; */
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 0;
+}
+
+ul li {
+  background-color: oldlace;
+  border: 2px solid salmon;
+  max-height: 250px;
+  max-width: 200px;
+  padding: 15px;
+} 
+
+ul img {
+  height: 200px;
+  width: 150px;
+}
+
+button {
+  background-color: palevioletred;
+  width: 100px;
+  color: white;
+}
+
+#detail {
+  min-width: 40%;
+  margin: 15px;
+  /* align-content: flex-end; */
+} 
+
+#detail h2, h4, p{
+  padding: 5px;
+}
