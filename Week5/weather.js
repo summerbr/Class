@@ -3,17 +3,17 @@ let searchForm = document.getElementById('citySearch')
 let searchBtn = document.getElementById('search')
 let display = document.getElementById('main')
 
-async function getWeather(city) {
-  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${key}&units=imperial`
+async function getWeather(zip) {
+  let url = `http://api.openweathermap.org/data/2.5/weather?zip=${zip}&APPID=${key}&units=imperial`
   let response = await fetch(url)
   response = await response.json()
-  // console.log(response)
+  console.log(response)
   let data = response.main
-  
-  displayData(data, city)
+  let city = response.name
+  displayData(data, zip, city)
 }
 
-function displayData(data, city) {
+function displayData(data, zip, city) {
   display.innerHTML = `
   <h1>Current Weather for ${city}</h1>
   <h3>Temp: ${data.temp}</h3>
@@ -24,7 +24,22 @@ function displayData(data, city) {
 }
 
 searchBtn.addEventListener('click', (e) => {
-  let city = searchForm.value
-  getWeather(city)
+  let zip = searchForm.value
+  getWeather(zip)
   e.preventDefault()
 })
+
+function userWeather() {
+  let url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${key}&units=imperial`
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude;
+}
