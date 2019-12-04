@@ -12,9 +12,11 @@ let coffeeForm = document.getElementById('coffeeText')
 let url = 'https://cors-anywhere.herokuapp.com/https://dc-coffeerun.herokuapp.com/api/coffeeorders/'
 let request = new XMLHttpRequest()
 
-// allOrderBtn.addEventListener('click', () => {
-
-// })
+function remove(email) {
+  let url = `http://dc-coffeerun.herokuapp.com/api/coffeeorders/${email}`
+  request.open('DELETE', url)
+  request.send()
+}
 
 function getOrder() {
   request.open('GET', url)
@@ -22,12 +24,12 @@ function getOrder() {
   request.onload = function() {
   let orders = JSON.parse(this.responseText)
   let allOrders = Object.values(orders)
-
+  
   let coffeeItems = allOrders.map((order) => {
     return `<li>
     <b>Email:</b> ${order.emailAddress}
     <b>Order:</b> ${order.coffee}
-    <button>Remove</button>
+    <button class="removeBtn">Remove</button>
     <hr>
     </li>`
   })
@@ -50,9 +52,11 @@ submitBtn.addEventListener('click', () => {
   }
 })
 
-
 // get order by email/GET with search --button to filter
+searchBtn.addEventListener('click', () => {
+  let url = `http://dc-coffeerun.herokuapp.com/api/coffeeorders/${searchEmail.value}`
 
+})
 
 
 //delete order by email 
