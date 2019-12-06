@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+}
+
+#displayArea{
+  padding: 10px;
+}
+
+ul {
+  list-style-image: url(iconfinder_shopping-cart_216477.png);
+  padding: 15px;
+} 
+
+/* ul li {
+  list-style-position: inside;
+  list-style-type: square;
+} */
+
+#loginForm {
+  margin-bottom: 30px;
+}
+
+.removeBtn {
+  background-color: red;
+  color: white;
+  border-radius: 8px;
+}
+

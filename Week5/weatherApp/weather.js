@@ -7,7 +7,7 @@ async function getWeather(zip) {
   let url = `http://api.openweathermap.org/data/2.5/weather?zip=${zip}&APPID=${key}&units=imperial`
   let response = await fetch(url)
   response = await response.json()
-  console.log(response)
+
   let data = response.main
   let city = response.name
   displayData(data, zip, city)
@@ -29,17 +29,12 @@ searchBtn.addEventListener('click', (e) => {
   e.preventDefault()
 })
 
-function userWeather() {
-  let url = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&APPID=${key}&units=imperial`
+// function userWeather() {
+//   if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition((position) => {
+//     let url = `http://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`
+//     getWeather(url)
+//   })
+// }
 
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-
-function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude +
-  "<br>Longitude: " + position.coords.longitude;
-}
+// userWeather()

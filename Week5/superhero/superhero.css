@@ -9,11 +9,13 @@ body {
 #container {
   display: flex;
   height: 100vh;
+  /* background-color: lightsalmon; */
 }
 
 ul {
   list-style: none;
   display: flex;
+  /* flex-direction: column; */
   flex-wrap: wrap;
   justify-content: space-evenly;
   padding: 0;
