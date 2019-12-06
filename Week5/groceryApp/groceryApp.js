@@ -6,37 +6,40 @@ let storeItemInput = document.getElementById('item')
 let displayList = document.getElementById('storeList')
 // let categoryInput = document.getElementById('category')
 
-let shoppingList = root.child('shoppingList')
+let shoppingListParent = root.child('shoppingList')
 
-let stores = []
-
-function removeItem(listId) {
-  // console.log(event.target.previousElementSibling.previousElementSibling)
-  shoppingList.child(storeId).remove()
+function removeItem(shoppingListId) {
+  shoppingListParent.child(shoppingListId).remove()
+  console.log(shoppingListId)
 }
 
 // how to loop through on return to display multiple store items seperate lines?
 // zero index?
 
-function display(stores) {
-  let storeItems = stores.map((store) => {
+function displayUI(shoppingLists) {
+  let listItems = shoppingLists.map((shoppingList) => {
     return `<li>
-      <h3>${store.storeName}</h3>
-      <label>${store.items}</label>
-      <button class='removeBtn' onclick='removeItem()'>Remove</button>
+      <h3>${shoppingList.storeName}</h3>
+      <label>${shoppingList.items}</label>
+      <button class='removeBtn' onclick='removeItem("${shoppingList.shoppingListId}")'>Remove</button>
       </li>`
   })
-  displayList.innerHTML = storeItems.join(' ')
+  displayList.innerHTML = listItems.join(' ')
 }
 
 function setupObservers() {
-  shoppingList.on('child_added',(snapshot) => {
-    let store = snapshot.val()
-    console.log(store)
-    //need to grab key from element and assign to storeId for loop?
-    stores.push(store)
+  shoppingListParent.on('value',(snapshot) => {
 
-    display(stores)
+    let shoppingLists = []
+    let snapshotValue = snapshot.val()
+    console.log(snapshotValue)
+
+    for(let key in snapshotValue) {
+      let shoppingList = snapshotValue[key]
+      shoppingList.shoppingListId = key
+      shoppingLists.push(shoppingList)
+    }
+    displayUI(shoppingLists)
   })
 }
 
