@@ -10,7 +10,7 @@ let shoppingList = root.child('shoppingList')
 
 let stores = []
 
-function removeItem(storeId) {
+function removeItem(listId) {
   // console.log(event.target.previousElementSibling.previousElementSibling)
   shoppingList.child(storeId).remove()
 }
@@ -28,12 +28,6 @@ function display(stores) {
   })
   displayList.innerHTML = storeItems.join(' ')
 }
-// 'removeItem("${storeID}") to return a string
-
-// input type='hidden' value=${store.id}
-// hidden store id to target item for removal
-
-// this.getAttribute(itemID)
 
 function setupObservers() {
   shoppingList.on('child_added',(snapshot) => {
@@ -59,6 +53,5 @@ submitBtn.addEventListener('click', () => {
   })
 
 })
-
 
 setupObservers()
