@@ -32,7 +32,6 @@ function setupObservers() {
 
     let shoppingLists = []
     let snapshotValue = snapshot.val()
-    console.log(snapshotValue)
 
     for(let key in snapshotValue) {
       let shoppingList = snapshotValue[key]
@@ -52,7 +51,7 @@ submitBtn.addEventListener('click', () => {
   shoppingListParent.push({
     storeName: storeName,
     // category: category,
-    items: [items]
+    items: items
   })
 
 })
