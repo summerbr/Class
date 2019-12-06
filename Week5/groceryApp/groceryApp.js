@@ -49,7 +49,7 @@ submitBtn.addEventListener('click', () => {
   // let category = categoryInput.value
   let items = storeItemInput.value.split(',')
 
-  shoppingList.push({
+  shoppingListParent.push({
     storeName: storeName,
     // category: category,
     items: [items]

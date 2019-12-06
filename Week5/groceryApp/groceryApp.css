@@ -2,6 +2,18 @@
   margin: 0;
 }
 
+#container {
+  height: 100vh;
+}
+
+div {
+  background-color: paleturquoise;
+}
+
+input {
+  min-width: 200px;
+}
+
 #displayArea{
   padding: 10px;
 }
@@ -10,11 +22,6 @@ ul {
   list-style-image: url(iconfinder_shopping-cart_216477.png);
   padding: 15px;
 } 
-
-/* ul li {
-  list-style-position: inside;
-  list-style-type: square;
-} */
 
 #loginForm {
   margin-bottom: 30px;
@@ -25,4 +32,3 @@ ul {
   color: white;
   border-radius: 8px;
 }
-
