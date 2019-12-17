@@ -1,0 +1,74 @@
+<html>
+<head>
+<style>
+h1 {
+  color: blue; 
+  text-align: center;
+}
+
+.text-block {
+  position: absolute;
+  color: white;
+  bottom: 20px;
+  left: 5px;
+  font-size: 20px;
+}
+
+button {
+  background-color: blue;
+  color: white;
+  padding: 3px;
+}
+
+img { 
+  width: 100%;
+  height: auto;
+  border: 2px solid teal;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+#card {
+  position: relative;
+}
+
+#card li {
+  list-style-type: none;
+  margin: 0;
+  padding: none;
+}
+
+</style>
+</head>
+
+<body>
+  <h2>Add a new trip</h2>
+  <form method="POST" action="/addTrip">
+    <input type="text" name="myCity" placeholder="Trip Name" />
+    <input type="text" name="myDeparture" placeholder="Departure Date" />
+    <input type="text" name="myReturn" placeholder="Return Date" />
+    <input type="url" name="myImg" placeholder="url for trip image" />
+    <button>Save</button>
+  </form>
+
+  <h1>Upcoming Trips</h1>
+  <ul>
+  {{#myTrips}}
+  <form id="card" method="POST" action="/remove">
+    <img src="{{imgURL}}" />
+      <div class="text-block">
+        <h2>{{city}}</h2>
+        <h4>{{departureDate}} - {{returnDate}}</h4>
+      </div>
+      <input type="hidden" name="removeCity" value="{{city}}" />
+        <button>Remove</button>
+  </form>
+  </li>
+  {{/myTrips}}
+</ul>
+</body>
+
+</html>

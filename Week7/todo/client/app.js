@@ -1,17 +1,18 @@
-class ToDos {
-  constructor(title, priority) {
-    this.title = title;
-    this.priority = priority;
-    this.dateCreated;
-    this.dateCompleted;
-    this.isCompleted = false;
-  }
-}
+// class ToDos {
+//   constructor(title, priority) {
+//     this.title = title;
+//     this.priority = priority;
+//     this.dateCreated;
+//     this.dateCompleted;
+//     this.isCompleted = false;
+//   }
+// }
 
 const url = 'http://localhost:3000/todos'
 
 let todoItem = document.getElementById('todoItem')
 let priority = document.getElementById('priority')
+let list = document.getElementById('list')
 let addButton = document.getElementById('addButton')
 
 addButton.addEventListener(onclick, ()=> {
@@ -31,7 +32,13 @@ addButton.addEventListener(onclick, ()=> {
 })
 
 function updateUI(todos) {
-  // ref previous todoList
+  let items = todos.map(item => {
+    return `<li>
+    ${item.title}
+    ${item.priority}
+    </li>`
+  })
+  list.innerHTML = items.join('')
 }
 
 // get all and display on the console 

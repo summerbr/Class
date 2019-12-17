@@ -9,13 +9,18 @@ app.use(cors())
 
 app.use(express.json())
 
+
 app.post('/todos',(req,res) => {
-  todos.push(req.body)
+  console.log(req.body)
+  // todos.push(req.body)
+  // let todo = new todo(req.body.title, req.body.priority)
+  res.status(200).send()
+  res.json({success: true, message: 'Task has been inserted'})
 })
 
 // GET; define Routes
 app.get('/todos',(req, res) => {
-  todos.push({title: "wash the car"})
+  // todos.push({title: "wash the car"})
   res.json(todos)
 })
 
