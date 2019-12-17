@@ -48,11 +48,6 @@ app.get('/trips', (req,res) => {
   res.render('trips', {myTrips: myTrips} )
 })
 
-app.get('/names', (req,res) => {
-  let names = [{name: 'Draco'}, {name: 'Harry'}, {name: 'Ron'}, {name: 'Hermione'}]
-  res.render('names', {harryPotter: names})
-})
-
 app.listen(3000, () => {
   console.log('Server is running on PORT 3000')
 })
