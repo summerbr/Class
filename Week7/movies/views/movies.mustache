@@ -1,0 +1,36 @@
+<html>
+<head>
+<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+{{>menu}}
+
+  <h1>Add movie</h1>
+  <form method="POST" action="/movies/create">
+    {{! <input type="hidden" name="id"> }}
+    <input type="text" name="title" placeholder="Movie Title" />
+    <input type="text" name="description" placeholder="Movie Description" />
+    <input type="text" name="genre" placeholder="Movie Genre" />
+    <input type="url" name="posterURL" placeholder="Movie Poster" />
+    <button>Add</button>
+  </form>
+
+  <h1>My Movies</h1>
+  <ul>
+  {{#myMovies}}
+  <li>
+  <form method="POST" action="/movies/delete">
+      <h3>{{title}}</h3>
+      <h4>Genre: {{genre}}</h4>
+      <img src="{{posterURL}}" />
+      <figcaption>Plot: {{description}}</figcaption>
+      <input type="hidden" name="deleteMovie" value="{{title}}" />
+        <button>Remove</button>
+  </form>
+  </li>
+  {{/myMovies}}
+  </ul>
+
+</body>
+</html>

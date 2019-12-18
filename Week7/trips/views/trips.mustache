@@ -1,52 +1,11 @@
 <html>
 <head>
-<style>
-h1 {
-  color: blue; 
-  text-align: center;
-}
-
-.text-block {
-  position: absolute;
-  color: white;
-  bottom: 20px;
-  left: 5px;
-  font-size: 20px;
-}
-
-button {
-  background-color: blue;
-  color: white;
-  padding: 3px;
-}
-
-img { 
-  width: 100%;
-  height: auto;
-  border: 2px solid teal;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-#card {
-  position: relative;
-}
-
-#card li {
-  list-style-type: none;
-  margin: 0;
-  padding: none;
-}
-
-</style>
+<link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <h2>Add a new trip</h2>
-  <form method="POST" action="/addTrip">
+  <form method="POST" action="/trips/addTrip">
     <input type="text" name="myCity" placeholder="Trip Name" />
     <input type="text" name="myDeparture" placeholder="Departure Date" />
     <input type="text" name="myReturn" placeholder="Return Date" />
@@ -57,7 +16,8 @@ ul {
   <h1>Upcoming Trips</h1>
   <ul>
   {{#myTrips}}
-  <form id="card" method="POST" action="/remove">
+  <li>
+  <form class="card" method="POST" action="/trips/remove">
     <img src="{{imgURL}}" />
       <div class="text-block">
         <h2>{{city}}</h2>
@@ -68,7 +28,7 @@ ul {
   </form>
   </li>
   {{/myTrips}}
-</ul>
-</body>
+  </ul>
 
+</body>
 </html>

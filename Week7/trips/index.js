@@ -1,52 +1,48 @@
 const express = require('express')
 const app = express()
 const mustacheExpress = require('mustache-express')
+const tripsRouter = require('./routes/trips')
+const usersRouter = require('./routes/users')
+const path = require('path')
 
-// tell express to read values
+app.use(express.static('public'))
+
 app.use(express.urlencoded())
+app.use('/trips', tripsRouter)
+app.use('/users', usersRouter)
 
-// tell express to use mustache templating engine
-app.engine('mustache', mustacheExpress())
-//the pages will be located in views directory
-app.set('views', './views')
-//extension will be .mustache
+const VIEWS_PATH = path.join(__dirname, '/views')
+
+app.engine('mustache', mustacheExpress(VIEWS_PATH + '/partials','.mustache'))
+app.set('views', VIEWS_PATH)
 app.set('view engine', 'mustache')
 
-let myTrips = []
+global.myTrips = []
 
-app.get('/', (req,res) => {
-  res.render('index', {name: 'Alex'})
-})
+// app.get('/', (req,res) => {
+//   res.render('trips', {myTrips: myTrips} )
+// })
 
-app.post('/addTrip', (req,res) => {
-  let trip = {
-    'city': req.body.myCity,
-    'departureDate': req.body.myDeparture,
-    'returnDate': req.body.myReturn,
-    'imgURL': req.body.myImg
-  }
-  myTrips.push(trip)
-  // console.log('trips posted...')
-  // console.log(myTrips)
-  res.redirect('/trips')
-})
+// app.post('/addTrip', (req,res) => {
+//   let trip = {
+//     'city': req.body.myCity,
+//     'departureDate': req.body.myDeparture,
+//     'returnDate': req.body.myReturn,
+//     'imgURL': req.body.myImg
+//   }
+//   myTrips.push(trip)
+//   res.redirect('/')
+// })
 
-app.post('/remove', (req,res) => {
-  let cityToRemove = req.body.removeCity
-  let filteredCities = myTrips.filter((trip) => {
-    if(trip.city != cityToRemove) {
-      return trip
-    }
-  })
-    myTrips = filteredCities
-    res.redirect('/trips')
-})
-
-app.get('/trips', (req,res) => {
-  // let trips = [{city: 'Denver', cost: 400}, {city: 'Houston', cost: 175}]
-  // res.render('trips', {myTrips: trips})
-  res.render('trips', {myTrips: myTrips} )
-})
+// app.post('/remove', (req,res) => {
+//   let cityToRemove = req.body.removeCity
+//   let myTrips = myTrips.filter((trip) => {
+//     if(trip.city != cityToRemove) {
+//       return trip
+//     }
+//   })
+//     res.redirect('/')
+// })
 
 app.listen(3000, () => {
   console.log('Server is running on PORT 3000')
