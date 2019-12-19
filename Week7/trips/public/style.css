@@ -26,7 +26,12 @@ img {
 ul {
   margin: 0;
   padding: 0;
-  display: inline-block;
+  list-style-type: none;
+}
+
+ul li {
+  display: inline;
+  padding: 15px;
 }
 
 .card {
@@ -34,7 +39,10 @@ ul {
 }
 
 .card li {
-  list-style-type: none;
   margin: 0;
   padding: none;
+}
+
+a {
+  text-decoration: none;
 }

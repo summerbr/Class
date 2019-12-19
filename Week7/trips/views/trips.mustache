@@ -5,15 +5,6 @@
 
 <body>
 {{>menu}}
-  <h2>Add a new trip</h2>
-  <form method="POST" action="/trips/addTrip">
-    <input type="text" name="myCity" placeholder="Trip Name" />
-    <input type="text" name="myDeparture" placeholder="Departure Date" />
-    <input type="text" name="myReturn" placeholder="Return Date" />
-    <input type="url" name="myImg" placeholder="url for trip image" />
-    <button>Save</button>
-  </form>
-
   <h1>Upcoming Trips</h1>
   <ul>
   {{#myTrips}}
@@ -30,6 +21,19 @@
   </li>
   {{/myTrips}}
   </ul>
+
+  {{^myTrips}}
+    <p>No trips found! Please add below.</p>
+  {{/myTrips}}
+  
+  <h1>Add a new trip</h1>
+  <form method="POST" action="/trips/addTrip">
+    <input type="text" name="myCity" placeholder="Trip Name" />
+    <input type="text" name="myDeparture" placeholder="Departure Date" />
+    <input type="text" name="myReturn" placeholder="Return Date" />
+    <input type="url" name="myImg" placeholder="url for trip image" />
+    <button>Save</button>
+  </form>
 
 </body>
 </html>
