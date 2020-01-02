@@ -38,5 +38,5 @@ app.post('/remove-post', (req,res)=> {
 
 
 app.listen(3000, ()=> {
-  console.log('server is running...')
+  console.log('Server is running...')
 })

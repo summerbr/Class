@@ -4,6 +4,13 @@ Week4/.DS_Store
 Week5/.DS_Store
 Week6/.DS_Store
 Week7/.DS_Store
-.DS_Store
+*.DS_Store
 Week8/APP/node_modules
 Week8/seqApp/node_modules
+/lectures
+*node_modules/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
