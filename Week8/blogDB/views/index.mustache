@@ -1,0 +1,30 @@
+<html>
+<head></head>
+
+<body>
+
+<h1>BLOG</h1>
+
+  {{#posts}}
+    <b>{{title}}</b>
+    <p>{{body}}</p>
+
+    <form method="POST" action="/remove-post">
+      <input type="hidden" name="id" value={{post_id}} />
+      <button>Remove</button>
+    </form>
+    <hr>
+
+  {{/posts}}
+
+<h2>Add Post</h2>
+<form method="POST" action="/posts">
+  <input type="text" name="title" placeholder="Title" />
+  <br>
+  <textarea name="body" rows="5" cols="50" placeholder="Body"></textarea>
+  <br>
+  <button>Save</button>
+</form>
+
+</body>
+</html>
