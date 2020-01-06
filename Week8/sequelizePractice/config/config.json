@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "summerb",
+    "password": "postgres",
+    "database": "template1",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+
+  "test": {
+    "username": "summerb",
+    "password": "postgres",
+    "database": "template1_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  
+  "production": {
+    "username": "summerb",
+    "password": "postgres",
+    "database": "template1_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}
