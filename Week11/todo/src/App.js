@@ -8,7 +8,7 @@ class App extends Component {
   
     this.state = {
       taskName: '',
-      todos: []
+      todos: [] //create an object or class to store multiple values
     }
   }
   
