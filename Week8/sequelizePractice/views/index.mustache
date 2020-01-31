@@ -10,16 +10,16 @@
     <p>{{body}}</p>
 
     <form method="POST" action="/remove-post">
-      <input type="hidden" name="id" value={{id}} />
+      <input type="hidden" name="id" value={{id}}>
       <button>Remove Entry</button>
     </form>
 
     <form method="POST" action="/update-post">
-      <input type="hidden" name="id" value={{id}} />
+      <input type="hidden" name="id" value={{id}}>
       <i>Title</i>
-      <input type="text" name="title" value={{title}} />
+      <input type="text" name="title" value={{title}}>
       <i>Category</i>
-      <input type="text" name="category" placeholder="Category" value={{category}} />
+      <input type="text" name="category" placeholder="Category" value={{category}}>
       <i>Body</i>
       <textarea name="body" rows="2" cols="30" value={{body}}></textarea>
       <button>Update Entry</button>

@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react'
 import './App.css';
+class App extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      books: []
+    }
+    fetch('http://localhost:8080/books')
+    .then(response => response.json())
+    .then(data => 
+        {
+      this.setState({
+        books: data
+          })
+      })
+  }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  render() {
+    const bookList = this.state.books.map(book => {
+      return <div key = {book.id}>
+        <p><strong>{book.title}</strong> </p>
+        <img alt="cover" src={book.imageURL} />
+        <p>Author: {book.author}</p>
+        <p>Genre: {book.genre}</p>
+        <p>Year: {book.year}</p>
+      </div>
+    })
+
+    return (
+      <div>
+        {bookList}
+      </div>
+    )
+  }
 }
 
 export default App;

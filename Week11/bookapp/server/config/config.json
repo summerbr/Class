@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "ysfvmcmb",
+    "password": "w-1YeHc8sSV-IqgNStg7izmzqxloMBr_",
+    "database": "ysfvmcmb",
+    "host": "rajje.db.elephantsql.com",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "ysfvmcmb",
+    "password": "w-1YeHc8sSV-IqgNStg7izmzqxloMBr_",
+    "database": "ysfvmcmb",
+    "host": "rajje.db.elephantsql.com",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "ysfvmcmb",
+    "password": "w-1YeHc8sSV-IqgNStg7izmzqxloMBr_",
+    "database": "ysfvmcmb",
+    "host": "rajje.db.elephantsql.com",
+    "dialect": "postgres"
+  }
+}
