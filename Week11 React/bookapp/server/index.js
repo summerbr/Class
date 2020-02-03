@@ -9,23 +9,21 @@ app.use(express.json())
 
 const db = require('./models')
 
-app.post('/add-books', (req,res) => {
+app.post('/add-book', (req,res) => {
   const title = req.body.title
   const author = req.body.author
   const genre = req.body.genre
-  const year = req.body.year
+  // const year = req.body.year
   const imageURL = req.body.imageURL
   const publisher = req.body.publisher
-  // const isbn = req.body.isbn
 
   const book = db.Book.build({
     title: title,
     author: author,
     genre: genre,
-    year: year,
+    // year: year,
     imageURL: imageURL,
-    publisher: publisher,
-    // isbn: isbn
+    publisher: publisher
   })
   book.save().then(savedBook => console.log(savedBook))
   res.redirect('/books')
